@@ -4,27 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace lap01_02
+namespace lap01_03
 {
-    public class Student
+    public class Student : Person
     {
-        public string MaSo { get; set; }
-        public string HoTen { get; set; }
-        public string Khoa { get; set; }
         public double DiemTB { get; set; }
-        public string? SoDienThoai { get; set; }
-        public Student(string maSo, string hoTen, string khoa, double diemTB,
-            string? soDienThoai)
+        public string? SoDienThoai { get; set; } 
+
+        public Student(string maSo, string hoTen, string khoa, double diemTB, string? soDienThoai)
+            : base(maSo, hoTen, khoa)
         {
-            MaSo = maSo;
-            HoTen = hoTen;
-            Khoa = khoa;
             DiemTB = diemTB;
             SoDienThoai = soDienThoai;
         }
+
         public override string ToString()
         {
-            return $"{MaSo} - {HoTen} - {Khoa} - DiemTB: {DiemTB:0.0} - SoDienThoai";
+            string sdt = SoDienThoai ?? "Chua cap nhat";
+            return $"[Sinh Vien] Ma: {MaSo} | Ho va Ten: {HoTen} | Khoa: {Khoa} | Diem TB: {DiemTB:0.0} | SDT: {sdt}";
         }
     }
 }
